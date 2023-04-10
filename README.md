@@ -6,7 +6,6 @@ Telegram бот, который отправляет уведомления о �
 - Python
 - python-telegram-bot
 - Docker
-- Doker-compose
 ---
 
 
