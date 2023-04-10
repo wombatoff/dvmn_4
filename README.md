@@ -25,33 +25,31 @@ sudo apt upgrade -y
 ```
 sudo apt-get install docker.io -y
 ```
-- Установить стабильную версию docker-compose: 
-```
-sudo apt-get install curl -y
-sudo curl -SL https://github.com/docker/compose/releases/download/v2.17.2/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
-```
-- Применить к файлу права доступа: 
-```
-sudo chmod +x /usr/local/bin/docker-compose
-```
-- Проверить версию docker-compose:
-```
-docker-compose --version
-```  
-Клонировать репозиторий и перейти в него:
+
+- Клонировать репозиторий и перейти в него:
 ```
 git clone https://github.com/wombatoff/dvmn_4
 cd dvmn_4
 ```
-Создать файл .env и заполнить его:
+- Создать файл .env и заполнить его:
 ```
 DVMN_TOKEN=
 TELEGRAM_TOKEN=
 TELEGRAM_CHAT_ID=
 ```
-Разверните Docker-контейнер:
+- Разверните Docker-контейнер:
 ```
-sudo docker-compose up -d --build
+docker build -t dvmn_checker_bot .
+```
+```
+sudo docker run -d \
+  --name dvmn_checker_bot \
+  -v $(pwd)/logs:/app/logs \
+  -v $(pwd)/.env:/app/.env \
+  --env-file .env \
+  --restart unless-stopped \
+  dvmn_checker_bot \
+  python dvmn_checker.py
 ```
 ### Автор:
 
