@@ -38,7 +38,7 @@ TELEGRAM_CHAT_ID=
 ```
 - Разверните Docker-контейнер:
 ```
-docker build -t dvmn_checker_bot .
+sudo docker build -t dvmn_checker_bot .
 ```
 ```
 sudo docker run -d \
