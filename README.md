@@ -51,7 +51,7 @@ TELEGRAM_CHAT_ID=
 ```
 Разверните Docker-контейнер:
 ```
-docker-compose up -d --build
+sudo docker-compose up -d --build
 ```
 ### Автор:
 
